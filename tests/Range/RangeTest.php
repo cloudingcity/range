@@ -60,7 +60,7 @@ class RangeTest extends TestCase
         $this->assertTrue($range->isNotContains(11));
         $this->assertTrue($range->isNotContains(-8));
     }
-    
+
     public function testIsNotContains()
     {
          $range = new Range(1, 10);
