@@ -28,3 +28,12 @@ var_dump($range->contains(5)); // true
 
 var_dump($range->isNotContains(15)); // true
 ```
+
+Determine two range object is equals or not:
+```php
+$rangeFoo = new Range(1, 10);
+
+var_dump($range->equals($rangeFoo)); // true
+
+var_dump($range->isNotEquals($rangeFoo)); // false
+```
