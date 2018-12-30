@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Clouding\Range\Tests;
 
 use Clouding\Range\Range;
+use InvalidArgumentException;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
@@ -13,32 +14,29 @@ class RangeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    /**
-     * @var \Clouding\Range\Range
-     */
-    protected $range;
-
-    protected function setUp()
+    public function testInvalidInputException()
     {
-        $this->range = new Range(1, 10);
-    }
+        $exception = 0;
 
-    /**
-     * @dataProvider invalidInputProvider
-     * @expectedException \InvalidArgumentException
-     */
-    public function testInvalidInputException(int $start, int $end)
-    {
-        new Range($start, $end);
-    }
+        try {
+            new Range(4, 1);
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
 
-    public function invalidInputProvider()
-    {
-        return [
-            [4, 1],
-            [1, 1],
-            [-5, -10],
-        ];
+        try {
+            new Range(1, 1);
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
+
+        try {
+            new Range(-5, -10);
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
+
+        $this->assertSame(3, $exception);
     }
 
     public function testGet()

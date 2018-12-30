@@ -78,7 +78,7 @@ class Range
     /**
      * Determine if the range is equals given range or not.
      *
-     * @param  \Clouding\Range\Range  $range
+     * @param  \Clouding\Range\Range $range
      * @return bool
      */
     public function equals(Range $range): bool
@@ -89,7 +89,7 @@ class Range
     /**
      * Determine if the range is not equals given range.
      *
-     * @param  \Clouding\Range\Range  $range
+     * @param  \Clouding\Range\Range $range
      * @return bool
      */
     public function isNotEquals(Range $range): bool
