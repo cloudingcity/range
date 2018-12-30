@@ -56,14 +56,6 @@ class RangeTest extends TestCase
         $this->assertTrue($range->contains(1));
         $this->assertTrue($range->contains(10));
         $this->assertTrue($range->contains(5));
-        $this->assertTrue($range->isNotContains(0));
-        $this->assertTrue($range->isNotContains(11));
-        $this->assertTrue($range->isNotContains(-8));
-    }
-
-    public function testIsNotContains()
-    {
-         $range = new Range(1, 10);
 
         $this->assertTrue($range->isNotContains(0));
         $this->assertTrue($range->isNotContains(11));
