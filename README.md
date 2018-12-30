@@ -1,7 +1,7 @@
 # Range
 
 ![](https://img.shields.io/packagist/php-v/clouding/range.svg?style=flat-square)
-![](https://img.shields.io/packagist/v/clouding/range.svg)
+![](https://img.shields.io/packagist/v/clouding/range.svg?style=flat-square)
 [![](https://img.shields.io/travis/com/cloudingcity/kata.svg?style=flat-square)](https://travis-ci.com/cloudingcity/range)
 [![](https://img.shields.io/codecov/c/github/cloudingcity/kata.svg?style=flat-square)](https://codecov.io/gh/cloudingcity/range)
 
