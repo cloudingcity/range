@@ -43,3 +43,10 @@ var_dump($range->equals($rangeFoo));      // bool(true)
 
 var_dump($range->isNotEquals($rangeFoo)); // bool(false)
 ```
+
+Formatting string:
+```php
+echo $range->format(':start ~ :end');       // 1 ~ 10
+
+echo $range->format('From :start to :end'); // From 1 to 10
+```

@@ -11,6 +11,20 @@ namespace Clouding\Range;
 class Range
 {
     /**
+     * Start of format.
+     *
+     * @var string
+     */
+    const FORMAT_START = ':start';
+
+    /**
+     * End of format.
+     *
+     * @var string
+     */
+    const FORMAT_END = ':end';
+
+    /**
      * Start of range.
      *
      * @var int
@@ -95,5 +109,16 @@ class Range
     public function isNotEquals(Range $range): bool
     {
         return ! $this->equals($range);
+    }
+
+    /**
+     * Formatting string.
+     *
+     * @param string $format
+     * @return string
+     */
+    public function format(string $format): string
+    {
+        return strtr($format, [static::FORMAT_START => $this->start, static::FORMAT_END => $this->end]);
     }
 }

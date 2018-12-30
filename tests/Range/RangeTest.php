@@ -69,4 +69,12 @@ class RangeTest extends TestCase
         $this->assertTrue($range->equals($mockRange));
         $this->assertFalse($range->isNotEquals($mockRange));
     }
+
+    public function testFormat()
+    {
+        $range = new Range(1, 10);
+
+        $this->assertSame('1 ~ 10', $range->format(':start ~ :end'));
+        $this->assertSame('From 1 to 10', $range->format('From :start to :end'));
+    }
 }
