@@ -41,12 +41,12 @@ class RangeTest extends TestCase
         ];
     }
 
-    public function testGetStartAndEnd()
+    public function testGet()
     {
         $range = new Range(1, 10);
 
-        $this->assertSame(1, $range->start());
-        $this->assertSame(10, $range->end());
+        $this->assertSame(1, $range->start);
+        $this->assertSame(10, $range->end);
     }
 
     public function testContains()
@@ -66,13 +66,7 @@ class RangeTest extends TestCase
     {
         $range = new Range(1, 10);
 
-        $mockRange = Mockery::mock(Range::class);
-        $mockRange->shouldReceive('start')
-            ->twice()
-            ->andReturn(1);
-        $mockRange->shouldReceive('end')
-            ->twice()
-            ->andReturn(10);
+        $mockRange = Mockery::mock(Range::class, [1, 10]);
 
         $this->assertTrue($range->equals($mockRange));
         $this->assertFalse($range->isNotEquals($mockRange));

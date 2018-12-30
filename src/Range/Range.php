@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Clouding\Range;
 
+/**
+ * @property-read int $start
+ * @property-read int $end
+ */
 class Range
 {
     /**
@@ -25,46 +29,28 @@ class Range
      *
      * @param int $start
      * @param int $end
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(int $start, int $end)
     {
-        $this->guardAgainstInvalidRange($start, $end);
+        if ($start >= $end) {
+            throw new \InvalidArgumentException("$end must greater than $start");
+        }
 
         $this->start = $start;
         $this->end = $end;
     }
 
     /**
-     * Guard against invalid range.
+     * Dynamic get attribute.
      *
-     * @param int $start
-     * @param int $end
+     * @param  $attribute
+     * @return mixed
      */
-    protected function guardAgainstInvalidRange(int $start, int $end)
+    public function __get($attribute)
     {
-        if ($start >= $end) {
-            throw new \InvalidArgumentException("$end must greater than $start");
-        }
-    }
-
-    /**
-     * Get start of range.
-     *
-     * @return int
-     */
-    public function start(): int
-    {
-        return $this->start;
-    }
-
-    /**
-     * Get end of range.
-     *
-     * @return int
-     */
-    public function end(): int
-    {
-        return $this->end;
+        return $this->$attribute;
     }
 
     /**
@@ -97,7 +83,7 @@ class Range
      */
     public function equals(Range $range): bool
     {
-        return $this->start === $range->start() && $this->end === $range->end();
+        return $this->start === $range->start && $this->end === $range->end;
     }
 
     /**
