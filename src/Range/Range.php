@@ -84,7 +84,7 @@ class Range
      * @param  int  $integer
      * @return bool
      */
-    public function isNotContains(int $integer): bool
+    public function isNotContains(int $integer)
     {
         return ! $this->contains($integer);
     }
