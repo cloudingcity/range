@@ -30,18 +30,14 @@ echo $range->end;   // 10
 
 Determine range contains integer or not:
 ```php
-var_dump($range->contains(5));       // bool(true)
-
-var_dump($range->isNotContains(15)); // bool(true)
+var_dump($range->contains(5)); // bool(true)
 ```
 
 Determine two range object is equals or not:
 ```php
 $rangeFoo = new Range(1, 10);
 
-var_dump($range->equals($rangeFoo));      // bool(true)
-
-var_dump($range->isNotEquals($rangeFoo)); // bool(false)
+var_dump($range->equals($rangeFoo)); // bool(true)
 ```
 
 Formatting string:
