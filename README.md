@@ -40,6 +40,13 @@ $rangeFoo = new Range(1, 10);
 var_dump($range->equals($rangeFoo)); // bool(true)
 ```
 
+Determine two range object is intersect or not:
+```php
+$rangeBar = new Range(5, 10);
+
+var_dump($range->intersect($rangeBar)); // bool(true)
+```
+
 Formatting string:
 ```php
 echo $range->format(':start ~ :end');       // 1 ~ 10

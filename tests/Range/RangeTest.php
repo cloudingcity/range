@@ -65,6 +65,26 @@ class RangeTest extends TestCase
         $this->assertTrue($range->equals($mockRange));
     }
 
+    public function testIntersect()
+    {
+        $range = new Range(1, 10);
+
+        $intersect1 = Mockery::mock(Range::class, [-5, 5]);
+        $this->assertTrue($range->intersect($intersect1));
+
+        $intersect2 = Mockery::mock(Range::class, [1, 5]);
+        $this->assertTrue($range->intersect($intersect2));
+
+        $intersect3 = Mockery::mock(Range::class, [5, 15]);
+        $this->assertTrue($range->intersect($intersect3));
+
+        $notIntersect1 = Mockery::mock(Range::class, [-5, -1]);
+        $this->assertFalse($range->intersect($notIntersect1));
+
+        $notIntersect2 = Mockery::mock(Range::class, [11, 15]);
+        $this->assertFalse($range->intersect($notIntersect2));
+    }
+
     public function testFormat()
     {
         $range = new Range(1, 10);

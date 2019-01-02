@@ -49,7 +49,7 @@ class Range
     public function __construct(int $start, int $end)
     {
         if ($start >= $end) {
-            throw new \InvalidArgumentException("$end must greater than $start");
+            throw new \InvalidArgumentException("End($end) must greater than Start($start)");
         }
 
         $this->start = $start;
@@ -79,7 +79,7 @@ class Range
     }
 
     /**
-     * Determine if the range is equals given range or not.
+     * Determine if the range is equals with the given range or not.
      *
      * @param  \Clouding\Range\Range $range
      * @return bool
@@ -87,6 +87,17 @@ class Range
     public function equals(Range $range): bool
     {
         return $this->start === $range->start && $this->end === $range->end;
+    }
+
+    /**
+     * Determine if the range is intersect with the given range or not.
+     *
+     * @param  \Clouding\Range\Range $range
+     * @return bool
+     */
+    public function intersect(Range $range): bool
+    {
+        return $this->contains($range->start) || $this->contains($range->end);
     }
 
     /**
