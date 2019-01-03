@@ -110,4 +110,19 @@ class Range
     {
         return strtr($format, [static::FORMAT_START => $this->start, static::FORMAT_END => $this->end]);
     }
+
+    /**
+     * Execute a callback over each integer of range.
+     *
+     * @param callable $callback
+     * @param int      $gap
+     */
+    public function each(callable $callback, $gap = 1)
+    {
+        foreach (range($this->start, $this->end, $gap) as $int) {
+            if ($callback($int) === false) {
+                break;
+            }
+        }
+    }
 }

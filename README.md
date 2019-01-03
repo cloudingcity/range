@@ -53,3 +53,26 @@ echo $range->format(':start ~ :end');       // 1 ~ 10
 
 echo $range->format('From :start to :end'); // From 1 to 10
 ```
+
+Execute a callback over each integer of range:
+```php
+$range = new Range(1, 5);
+
+$range->each(function ($int) {
+    echo $int, ', ';
+});
+// 1, 2, 3, 4, 5, 
+
+$range->each(function ($int) {
+    if ($int >= 3) {
+        return false;
+    }
+    echo $int . ', ';
+});
+// 1, 2, 
+
+$range->each(function($int) {
+    echo $int . ', ';
+}, 2);
+// 1, 3, 5,
+```
