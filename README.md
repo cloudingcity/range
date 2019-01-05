@@ -4,6 +4,7 @@
 [![](https://img.shields.io/packagist/v/clouding/range.svg?style=flat-square)](https://packagist.org/packages/clouding/range)
 [![](https://img.shields.io/travis/com/cloudingcity/kata.svg?style=flat-square)](https://travis-ci.com/cloudingcity/range)
 [![](https://img.shields.io/codecov/c/github/cloudingcity/kata.svg?style=flat-square)](https://codecov.io/gh/cloudingcity/range)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat-square)](https://github.com/phpstan/phpstan)
 
 A simple library for **Range** object.
 
