@@ -35,9 +35,10 @@
     "scripts": {
         "test": [
             "@phpunit",
-            "@phpcs"
+            "@phpcs",
+            "@phpstan"
         ],
-        "phpunit": "phpunit --verbose --coverage-clover=coverage.xml",
+        "phpunit": "phpunit --verbose",
         "phpcs": "phpcs -p",
         "phpstan": "phpstan analyse --configuration phpstan.neon --level max src tests --ansi"
     }
