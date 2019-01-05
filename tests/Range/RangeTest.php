@@ -47,6 +47,40 @@ class RangeTest extends TestCase
         $this->assertSame(10, $range->end);
     }
 
+    public function testParse()
+    {
+        $range = Range::parse('1..10');
+
+        $this->assertInstanceOf(Range::class, $range);
+        $this->assertSame(1, $range->start);
+        $this->assertSame(10, $range->end);
+    }
+
+    public function testParseException()
+    {
+        $exception = 0;
+
+        try {
+            Range::parse('1...10');
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
+
+        try {
+            Range::parse('-1aa-10');
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
+
+        try {
+            Range::parse('123.123');
+        } catch (InvalidArgumentException $e) {
+            $exception++;
+        }
+
+        $this->assertSame(3, $exception);
+    }
+
     public function testContains()
     {
         $range = new Range(1, 10);

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Clouding\Range;
 
+use InvalidArgumentException;
+
 /**
  * @property-read int $start
  * @property-read int $end
@@ -49,11 +51,28 @@ class Range
     public function __construct(int $start, int $end)
     {
         if ($start >= $end) {
-            throw new \InvalidArgumentException("End($end) must greater than Start($start)");
+            throw new InvalidArgumentException("End($end) must greater than Start($start)");
         }
 
         $this->start = $start;
         $this->end = $end;
+    }
+
+    /**
+     * Create a instance from parse a range string.
+     *
+     * @param  string                $string
+     * @return \Clouding\Range\Range
+     */
+    public static function parse(string $string): Range
+    {
+        if (!preg_match('/^[-]?\d+\.\.[-]?\d+$/', $string, $matches)) {
+            throw new invalidArgumentException("Couldn't parse the string \"$string\"");
+        }
+
+        [$start, $end] = explode('..', $string);
+
+        return new static((int) $start, (int) $end);
     }
 
     /**

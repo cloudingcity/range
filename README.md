@@ -22,6 +22,11 @@ use Clouding\Range\Range;
 $range = new Range(1, 10);
 ```
 
+Create a instance from parse a range string:
+```php
+$range = Range::parse('1..10');
+```
+
 Get start and end:
 ```php
 echo $range->start; // 1
