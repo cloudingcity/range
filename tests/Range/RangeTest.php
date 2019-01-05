@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Clouding\Range\Tests;
+namespace Tests\Range;
 
 use Clouding\Range\Range;
 use InvalidArgumentException;
