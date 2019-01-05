@@ -61,6 +61,16 @@ echo $range;            // -5..5
 echo $range->toString() // -5..5
 ```
 
+ Get the instance as an array:
+```php
+$range = new Range(1, 5);
+
+var_dump($range->toArray()); // [1, 2, 3, 4, 5]
+
+// with gap 2
+var_dump($range->toArray(2)); // [1, 3, 5]
+```
+
 Formatting string:
 ```php
 echo $range->format(':start ~ :end');       // 1 ~ 10

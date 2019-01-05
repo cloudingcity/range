@@ -162,4 +162,12 @@ class RangeTest extends TestCase
         $this->assertSame($string, strval($range));
         $this->assertSame($string, $range->toString());
     }
+
+    public function testToArray()
+    {
+        $range = new Range(1, 5);
+
+        $this->assertSame([1, 2, 3, 4, 5], $range->toArray());
+        $this->assertSame([1, 3, 5], $range->toArray(2));
+    }
 }

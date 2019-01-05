@@ -136,9 +136,9 @@ class Range
      * @param callable $callback
      * @param int      $gap
      */
-    public function each(callable $callback, $gap = 1)
+    public function each(callable $callback, int $gap = 1)
     {
-        foreach (range($this->start, $this->end, $gap) as $int) {
+        foreach ($this->toArray($gap) as $int) {
             if ($callback($int) === false) {
                 break;
             }
@@ -163,5 +163,16 @@ class Range
     public function toString(): string
     {
         return "$this->start..$this->end";
+    }
+
+    /**
+     * Get the instance as an array.
+     *
+     * @param  int $gap
+     * @return array
+     */
+    public function toArray(int $gap = 1): array
+    {
+        return range($this->start, $this->end, $gap);
     }
 }
