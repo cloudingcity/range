@@ -144,4 +144,24 @@ class Range
             }
         }
     }
+
+    /**
+     * Return range string.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->toString();
+    }
+
+    /**
+     * Return range string.
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return "$this->start..$this->end";
+    }
 }

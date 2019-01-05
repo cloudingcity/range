@@ -152,4 +152,14 @@ class RangeTest extends TestCase
         }, 2);
         $this->assertSame([1, 3, 5], $results);
     }
+
+    public function testToString()
+    {
+        $string = '-5..5';
+
+        $range = Range::parse($string);
+
+        $this->assertSame($string, strval($range));
+        $this->assertSame($string, $range->toString());
+    }
 }

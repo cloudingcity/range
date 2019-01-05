@@ -53,6 +53,14 @@ $rangeBar = new Range(5, 10);
 var_dump($range->intersect($rangeBar)); // bool(true)
 ```
 
+Get a range string:
+```php
+$range = Range::parse('-5..5');
+
+echo $range;            // -5..5
+echo $range->toString() // -5..5
+```
+
 Formatting string:
 ```php
 echo $range->format(':start ~ :end');       // 1 ~ 10
