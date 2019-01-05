@@ -42,9 +42,11 @@ class FunctionsTest extends TestCase
         $random = $range->random();
         $this->assertTrue($range->contains($random));
 
-        $randoms = $range->random(5);
+        $amount = 5;
+        $randoms = $range->random($amount);
         foreach ($randoms as $random) {
             $this->assertTrue($range->contains($random));
         }
+        $this->assertCount($amount, $randoms);
     }
 }

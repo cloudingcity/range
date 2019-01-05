@@ -34,7 +34,7 @@ trait Functions
         }
 
         $results = [];
-        for ($count = 1; $count <= abs($amount); $count++) {
+        while ($amount-- > 0) {
             $results[] = $this->random();
         }
 
