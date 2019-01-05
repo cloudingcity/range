@@ -53,7 +53,7 @@ $rangeBar = new Range(5, 10);
 var_dump($range->intersect($rangeBar)); // bool(true)
 ```
 
-Get a range string:
+ Get the instance as a string:
 ```php
 $range = Range::parse('-5..5');
 
