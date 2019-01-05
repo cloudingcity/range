@@ -59,10 +59,10 @@ class Range
     /**
      * Dynamic get attribute.
      *
-     * @param  $attribute
+     * @param  string $attribute
      * @return mixed
      */
-    public function __get($attribute)
+    public function __get(string $attribute)
     {
         return $this->$attribute;
     }
