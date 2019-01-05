@@ -146,7 +146,7 @@ class Range
     }
 
     /**
-     * Return range string.
+     * Get the instance as a string.
      *
      * @return string
      */
@@ -156,7 +156,7 @@ class Range
     }
 
     /**
-     * Return range string.
+     * Get the instance as a string.
      *
      * @return string
      */
