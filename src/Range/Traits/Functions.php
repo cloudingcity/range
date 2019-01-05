@@ -22,32 +22,19 @@ trait Functions
     }
 
     /**
-     * Get a random integer of the range.
+     * Get random integer of the range.
      *
-     * @param  int $seed
-     * @return int
+     * @param  int $amount
+     * @return int|array
      */
-    public function random(int $seed = null): int
+    public function random(int $amount = null)
     {
-        if (!is_null($seed)) {
-            srand($seed);
+        if (is_null($amount)) {
+            return rand($this->start, $this->end);
         }
 
-        return rand($this->start, $this->end);
-    }
-
-    /**
-     * Get random integers of the range.
-     *
-     * @param  int   $amount
-     * @return array
-     */
-    public function randomAsArray(int $amount = 1)
-    {
-        $amount = abs($amount);
         $results = [];
-
-        for ($count = 1; $count <= $amount; $count++) {
+        for ($count = 1; $count <= abs($amount); $count++) {
             $results[] = $this->random();
         }
 

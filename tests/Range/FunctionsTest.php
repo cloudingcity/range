@@ -42,17 +42,7 @@ class FunctionsTest extends TestCase
         $random = $range->random();
         $this->assertTrue($range->contains($random));
 
-        $randomSeed1 = $range->random(1234);
-        $randomSeed2 = $range->random(1234);
-
-        $this->assertSame($randomSeed1, $randomSeed2);
-    }
-
-    public function testRandomAsArray()
-    {
-        $range = new Range(1, 10);
-        $randoms = $range->randomAsArray(5);
-
+        $randoms = $range->random(5);
         foreach ($randoms as $random) {
             $this->assertTrue($range->contains($random));
         }

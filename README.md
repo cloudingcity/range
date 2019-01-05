@@ -127,14 +127,11 @@ $range->each(function($int) {
 // 1, 3, 5,
 ```
 
-Get a random integer of the range:
+Get random integer of the range:
 ```php
 $range = new Range(1, 10);
 
-echo $range->random();     // 3 (random of 1 ~ 10)
+echo $range->random();       // 3 
 
-// with seed
-echo $range->random(1234); // 4 (random of 1 ~ 10 with seed)
-
-var_dump($range->randomAsArray(3)); // [3, 2, 9] 
+var_dump($range->random(3)); // [3, 2, 9] 
 ```
