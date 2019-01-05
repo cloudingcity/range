@@ -170,4 +170,27 @@ class RangeTest extends TestCase
         $this->assertSame([1, 2, 3, 4, 5], $range->toArray());
         $this->assertSame([1, 3, 5], $range->toArray(2));
     }
+
+    public function testRandom()
+    {
+        $range = new Range(1, 20);
+
+        $random = $range->random();
+        $this->assertTrue($range->contains($random));
+
+        $randomSeed1 = $range->random(1234);
+        $randomSeed2 = $range->random(1234);
+
+        $this->assertSame($randomSeed1, $randomSeed2);
+    }
+
+    public function testRandomAsArray()
+    {
+        $range = new Range(1, 10);
+        $randoms = $range->randomAsArray(5);
+
+        foreach ($randoms as $random) {
+            $this->assertTrue($range->contains($random));
+        }
+    }
 }

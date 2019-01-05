@@ -175,4 +175,37 @@ class Range
     {
         return range($this->start, $this->end, $gap);
     }
+
+    /**
+     * Get a random integer of the range.
+     *
+     * @param  int $seed
+     * @return int
+     */
+    public function random(int $seed = null): int
+    {
+        if (!is_null($seed)) {
+            srand($seed);
+        }
+
+        return rand($this->start, $this->end);
+    }
+
+    /**
+     * Get random integers of the range.
+     *
+     * @param  int   $amount
+     * @return array
+     */
+    public function randomAsArray(int $amount = 1)
+    {
+        $amount = abs($amount);
+        $results = [];
+
+        for ($count = 1; $count <= $amount; $count++) {
+            $results[] = $this->random();
+        }
+
+        return $results;
+    }
 }
