@@ -1,6 +1,7 @@
 {
     "name": "clouding/range",
     "description": "A simple library for range object.",
+    "keywords": ["library", "range"],
     "type": "library",
     "license": "MIT",
     "authors": [
